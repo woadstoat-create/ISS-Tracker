@@ -1,0 +1,44 @@
+﻿<Window x:Class="ISSTracker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ISSTracker"
+        mc:Ignorable="d"
+        Title="ISS Tracker" Height="550" Width="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>        <!-- Map takes remaining space -->
+            <ColumnDefinition Width="250"/>      <!-- Fixed-width info panel -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Left: Map -->
+        <Grid Grid.Column="0">
+            <Image Source="worldmap.png" Stretch="Fill"/>
+            <Canvas x:Name="MapCanvas"/>
+        </Grid>
+
+        <!-- Right: Info Panel -->
+        <StackPanel Grid.Column="1" Margin="16" VerticalAlignment="Top">
+            
+            <TextBlock Text="ISS Live Tracker" FontSize="20" FontWeight="Bold" Margin="0,0,0,16"/>
+
+            <TextBlock Text="Position" FontWeight="Bold" Margin="0,0,0,4"/>
+            <TextBlock x:Name="LatLabel" Text="Latitude: --"/>
+            <TextBlock x:Name="LonLabel" Text="Longitude: --" Margin="0,0,0,12"/>
+
+            <TextBlock Text="Last Updated" FontWeight="Bold" Margin="0,0,0,4"/>
+            <TextBlock x:Name="TimeLabel" Text="--" Margin="0,0,0,12"/>
+
+            <TextBlock Text="Crew Aboard" FontWeight="Bold" Margin="0,0,0,4"/>
+            <ListBox x:Name="CrewList" Margin="0,0,0,12" BorderThickness="0"/>
+
+            <TextBlock x:Name="StatusLabel" Foreground="OrangeRed" TextWrapping="Wrap" Margin="0,0,0,12"/>
+
+            <Button Content="Start Tracking" Click="StartTracking_Click" Margin="0,0,0,8"/>
+            <!-- <Button Content="Stop Tracking" Click="StopTracking_Click"/> -->
+
+        </StackPanel>
+    </Grid>
+
+</Window>
